@@ -26,7 +26,7 @@ function calcTip(bill) {
 	}
 };
 
-bills = [125, 555, 44];
+const bills = [125, 555, 44];
 
 const tips = bills.map(bill => {
 	return calcTip(bill);
