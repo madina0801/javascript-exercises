@@ -18,6 +18,7 @@ const checkWinner = function(dolphinsAvg, koalasAvg) {
 checkWinner(scoreDolphins, scoreKoalas);
 */
 //CHALLENGE 2
+/*
 function calcTip(bill) {
 	if(50 <= bill && bill <= 300) {
 		return bill * 0.15;
@@ -35,3 +36,14 @@ const tips = bills.map(bill => {
 const total = bills.map((num, idx) => {
 	return num + tips[idx];
 });
+*/
+
+const jonas = {
+	firstName: 'Jonas',
+	lastName: 'Schmedtmann',
+	age: 2037 - 1991,
+	job: 'teacher',
+	friends: ['Michael', 'Peter', 'Steven']
+}
+
+console.log(`${jonas.firstName} has ${jonas.friends.length} friends, and his best friend is called ${jonas.friends[0]}`)
