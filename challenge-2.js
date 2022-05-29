@@ -37,13 +37,54 @@ const total = bills.map((num, idx) => {
 	return num + tips[idx];
 });
 */
-
+/*
 const jonas = {
-	firstName: 'Jonas',
-	lastName: 'Schmedtmann',
-	age: 2037 - 1991,
-	job: 'teacher',
-	friends: ['Michael', 'Peter', 'Steven']
+  firstName: "Jonas",
+  lastName: "Schmedtmann",
+  birthYear: 1991,
+  job: "teacher",
+  friends: ["Michael", "Peter", "Steven"],
+  hasDriversLicense: true,
+
+  calcAge: function () {
+    this.age = 2037 - this.birthYear;
+    return this.age;
+  },
+
+  getSummary: function () {
+    return `${this.firstName} is a ${this.calcAge()}-year old ${jonas.job}, and he has ${this.hasDriversLicense ? 'a' : 'no'} driver's license.`;
+  },
+};
+
+console.log(jonas.getSummary());
+*/
+
+//CHALLENGE 3
+const mark = {
+	fullName: 'Mark Miller',
+	weight: 78,
+	height: 1.69,
+	calcBMI: function() {
+		this.bmi = this.weight / this.height ** 2;
+		return this.bmi;
+	}
 }
 
-console.log(`${jonas.firstName} has ${jonas.friends.length} friends, and his best friend is called ${jonas.friends[0]}`)
+const john = {
+	fullName: 'John Smith',
+	weight: 92,
+	height: 1.95,
+	calcBMI: function() {
+		this.bmi = this.weight / this.height ** 2;
+		return this.bmi;
+	}
+}
+
+mark.calcBMI();
+john.calcBMI();
+
+if(mark.bmi > john.bmi) {
+	console.log(`${mark.fullName}'s BMI (${mark.bmi}) is higher than ${john.fullName}'s BMI (${john.bmi})!`);
+} else if (john.bmi > mark.bmi) {
+	(`${john.fullName}'s BMI(${john.bmi}) is higher than ${mark.fullName}'s BMI (${mark.bmi})!`);
+}
