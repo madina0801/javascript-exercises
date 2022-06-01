@@ -1,3 +1,5 @@
+'use strict';
+
 // CHALLENGE 1
 /*
 const calcAverage = (score1, score2, score3) => (score1 + score2 + score3) / 3;
@@ -92,6 +94,7 @@ if(mark.bmi > john.bmi) {
 */
 
 //CHALLENGE 4
+/*
 const calcTip = function(bill) {
 	return bill >= 50 && bill <= 300 ? bill * 0.15 : bill * 0.2;
 }
@@ -117,3 +120,29 @@ const calcAverage = function (arr) {
 }
 
 console.log(calcAverage(totals));
+*/
+
+//PROBLEM SOLVING
+const temperatures = [3, -2, -6, -1, 'error', 9, 13, 17, 15, 14, 9, 5];
+
+//1. Understanding the problem
+//2. Breaing up into sub-problems
+
+const calcTempAmplitude = function(temps) {
+	let max = temps[0];
+	let min = temps[0];
+
+	for(let i = 0; i < temps.length; i++) {
+		const curTemp = temps[i];
+		if(typeof curTemp !== 'number') continue;
+
+
+		if(curTemp > max) max = curTemp;
+		if(curTemp < min) min = curTemp;
+	}
+
+	return max-min;
+}
+
+const amplitude = calcTempAmplitude(temperatures);
+console.log(amplitude);
