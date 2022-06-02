@@ -123,7 +123,7 @@ console.log(calcAverage(totals));
 */
 
 //PROBLEM SOLVING
-
+/*
 const temperatures = [3, -2, -6, -1, 'error', 9, 13, 17, 15, 14, 9, 5];
 
 //1. Understanding the problem
@@ -166,8 +166,9 @@ const calcTempAmplitudeNew = function(t1, t2) {
 
 const amplitudeNew = calcTempAmplitudeNew([3, 5, 1], [9, 0, 5]);
 console.log(amplitudeNew);
-
-
+*/
+//DEBUGGING AND BREAKPOINTS
+/*
 const measureKelvin = function() {
 	const measurement = {
 		type: 'temp',
@@ -185,3 +186,29 @@ const measureKelvin = function() {
 }
 
 console.log(measureKelvin());
+*/
+
+//CHALLENGE 1
+//1st Solution
+/*
+const printForecast = function(arr) {
+	for(let i = 0; i < arr.length; i++) {
+		const day = 1;
+		console.log(`... ${arr[i]} in ${day + i} days`);
+	}
+}
+printForecast([12, 5, -5, 0, 4]);
+*/
+
+//2nd Solution
+const data1 = [17, 21, 23];
+const data2 = [12, 5, -5, 0, 4];
+
+const printForecast = function(arr) {
+	let str = '... ';
+	for(let i = 0; i < arr.length; i++) {
+		str = str + `${arr[i]}ºC in ${i + 1} days ... `;
+	}
+	console.log(str);
+}
+printForecast(data1);
