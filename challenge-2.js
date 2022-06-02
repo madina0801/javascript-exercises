@@ -123,6 +123,7 @@ console.log(calcAverage(totals));
 */
 
 //PROBLEM SOLVING
+
 const temperatures = [3, -2, -6, -1, 'error', 9, 13, 17, 15, 14, 9, 5];
 
 //1. Understanding the problem
@@ -136,7 +137,7 @@ const calcTempAmplitude = function(temps) {
 		const curTemp = temps[i];
 		if(typeof curTemp !== 'number') continue;
 
-
+		debugger;
 		if(curTemp > max) max = curTemp;
 		if(curTemp < min) min = curTemp;
 	}
@@ -165,3 +166,22 @@ const calcTempAmplitudeNew = function(t1, t2) {
 
 const amplitudeNew = calcTempAmplitudeNew([3, 5, 1], [9, 0, 5]);
 console.log(amplitudeNew);
+
+
+const measureKelvin = function() {
+	const measurement = {
+		type: 'temp',
+		unit: 'celsius',
+		value: Number(prompt('Degrees celsius:'))
+	}
+
+	// console.table(measurement);
+
+	// console.log(measurement.value);
+	// console.warn(measurement.value);
+	// console.error(measurement.value);
+	const kelvin = measurement.value + 273;
+	return kelvin;
+}
+
+console.log(measureKelvin());
