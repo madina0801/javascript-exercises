@@ -201,6 +201,7 @@ printForecast([12, 5, -5, 0, 4]);
 */
 
 //2nd Solution
+/*
 const data1 = [17, 21, 23];
 const data2 = [12, 5, -5, 0, 4];
 
@@ -212,3 +213,43 @@ const printForecast = function(arr) {
 	console.log(str);
 }
 printForecast(data1);
+*/
+
+//SCOPING PRACTICE
+/*
+function calcAge(birthYear) {
+	const age = 2037 - birthYear;
+	console.log(firstName);
+	return age;
+}
+
+const firstName = 'Jonas';
+calcAge(1991);
+*/
+
+//HOISTING AND TDZ PRACTICE
+
+// Variables
+console.log(me);
+// console.log(job);
+// console.log(year);
+
+var me = 'Jonas';
+let job = 'teacher';
+const year = 1991;
+
+// Functions
+
+console.log(addDecl(2, 3));
+console.log(addExpr(2, 3));
+console.log(addArrow(2, 3));
+
+function addDecl(a, b) {
+	return a + b;
+}
+
+const addExpr = function(a, b) {
+	return a + b;
+}
+
+var addArrow = (a, b) => a + b;
