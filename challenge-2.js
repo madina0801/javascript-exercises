@@ -362,6 +362,7 @@ const f = jonas.calcAge;
 
 // PRIMITIVES VS OBJECTS (primitive vs reference types)
 // Primitive types
+/*
 let age = 30;
 let oldAge = age;
 age = 31;
@@ -411,3 +412,69 @@ jessicaCopy.family.push('John');
 
 console.log('Before marriage:', jessica2);
 console.log('After marriage:', jessicaCopy);
+*/
+
+// DATA STRUCTURES, MODERN OPERATORS AND STINGS
+// CHALLENGE 1
+
+const game = {
+  team1: "Bayern Munich",
+  team2: "Borrussia Dortmund",
+  players: [
+    [
+      "Neuer",
+      "Pavard",
+      "Martinez",
+      "Alaba",
+      "Davies",
+      "Kimmich",
+      "Goretzka",
+      "Coman",
+      "Muller",
+      "Gnarby",
+      "Lewandowski",
+    ],
+    [
+      "Burki",
+      "Schulz",
+      "Hummels",
+      "Akanji",
+      "Hakimi",
+      "Weigl",
+      "Witsel",
+      "Hazard",
+      "Brandt",
+      "Sancho",
+      "Gotze",
+    ],
+  ],
+  score: "4:0",
+  scored: ["Lewandowski", "Gnarby", "Lewandowski", "Hummels"],
+  date: "Nov 9th, 2037",
+  odds: {
+    team1: 1.33,
+    x: 3.25,
+    team2: 6.5,
+  },
+};
+
+const [players1, players2] = game.players;
+
+const [gk, ...fieldPlayers] = players1;
+console.log(gk, fieldPlayers);
+
+const allPlayers = [...players1, ...players2];
+console.log(allPlayers);
+
+const players1Final = [...players1, 'Thiago', 'Coutinho', 'Perisic'];
+
+const {team1, team2, x: draw} = game.odds;
+
+const printGoals = function(...names) {
+	console.log(`${names} with ${names.length} goals!`);
+}
+
+printGoals('Davies', 'Muller', 'Lewandowski');
+printGoals(...game.scored);
+
+console.log(`Most Likely To Win: ${(team1 < team2 && 'Team 1') || 'Team 2'}`);
