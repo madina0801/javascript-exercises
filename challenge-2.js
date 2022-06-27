@@ -457,7 +457,7 @@ const game = {
     team2: 6.5,
   },
 };
-
+/*
 const [players1, players2] = game.players;
 
 const [gk, ...fieldPlayers] = players1;
@@ -478,3 +478,58 @@ printGoals('Davies', 'Muller', 'Lewandowski');
 printGoals(...game.scored);
 
 console.log(`Most Likely To Win: ${(team1 < team2 && 'Team 1') || 'Team 2'}`);
+*/
+
+// CODING CHALLENGE 2
+
+// FIRST TASK
+
+const scored = game.scored;
+
+for (let score of scored.entries()) {
+  // console.log(score);
+  console.log(`Goal ${score[0] + 1}: ${score[1]}`);
+}
+
+// SECOND TASK
+
+let total = 0;
+const odds = Object.values(game.odds);
+
+for (let i = 0; i < odds.length; i++) {
+  total += odds[i];
+}
+
+let oddsAvg = Math.trunc(total / odds.length);
+console.log(oddsAvg);
+
+// DIFFERENT SOLUTION FOR SECOND TASK
+let average = 0;
+for(const odd of odds) average += odd;
+average /= odds.length;
+console.log(average);
+
+// THIRD TASK
+
+// const {team1, team2} = game;
+
+// console.log(`Odd of victory ${team1}: ${game.odds.team1}
+// Odd of draw: ${game.odds.x}
+// Odd of victory ${team2}: ${game.odds.team2}`);
+
+// DIFFERENT SOLUTION FOR THIRD TASK
+console.log(Object.entries(game.odds));
+
+for(const [team, odd] of Object.entries(game.odds)) {
+	const teamString = team === 'x' ? 'draw' : `victory ${game[team]}`
+	console.log(`Odd of ${teamString} ${odd}`);
+}
+
+// BONUS TASK
+	const scorers = {};
+
+	for(let name of game.scored) {
+		scorers[name]++ || (scorers[name] = 1);
+	}
+
+	console.log(scorers);
