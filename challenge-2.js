@@ -539,6 +539,8 @@ for(const [team, odd] of Object.entries(game.odds)) {
 
 // THIRD CHALLENGE
 
+/*
+
 const gameEvents = new Map([
  [17, '⚽ GOAL'],
  [36, '� Substitution'],
@@ -573,3 +575,19 @@ for(const [key, value] of gameEvents.entries()) {
 	const half = key <= 45 ? 'FIRST' : 'SECOND';
 	console.log(`[${half} HALF]: ${key}: ${value}`);
 }
+*/
+
+// CODING CHALLENGE 4
+document.body.append(document.createElement('textarea'));
+document.body.append(document.createElement('button'));
+
+document.querySelector('button').addEventListener('click', () => {
+	const text = document.querySelector('textarea').value;
+ // console.log(text);
+	const textArr = text.split('\n')
+	// console.log(textArr);
+	for(let text of textArr) {
+		let textModified = text.split('_');
+		console.log(textModified);
+	}
+});
