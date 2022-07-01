@@ -584,12 +584,12 @@ document.body.append(document.createElement('button'));
 document.querySelector('button').addEventListener('click', () => {
 	const text = document.querySelector('textarea').value;
  // console.log(text);
-	const textArr = text.split('\n');
-	// console.log(textArr);
-	for(let text of textArr) {
-		let textArrDivided = text.split('_');
-		let capitalizedWord = textArrDivided[1].replace(textArrDivided[1][0], textArrDivided[1][0].toUpperCase());
-		// console.log(capitalizedWord);
-		console.log(textArrDivided);
+	const rows = text.split('\n');
+	console.log(rows);
+	for(const [i, row] of rows.entries()) {
+		let [first, second] = row.toLowerCase().trim().split('_');
+		second = second.replace(second[0], second[0].toUpperCase());
+		const output = [first, second].join('');
+		console.log(`${output.padEnd(20)}${'✅'.repeat(i + 1)}`);
 	}
 });
