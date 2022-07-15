@@ -578,6 +578,7 @@ for(const [key, value] of gameEvents.entries()) {
 */
 
 // CODING CHALLENGE 4
+/*
 document.body.append(document.createElement('textarea'));
 document.body.append(document.createElement('button'));
 
@@ -593,3 +594,27 @@ document.querySelector('button').addEventListener('click', () => {
 		console.log(`${output.padEnd(20)}${'✅'.repeat(i + 1)}`);
 	}
 });
+*/
+
+// ARRAY CODING CHALLENGES
+
+// CHALLENGE 1
+
+const checkDogs = function(dogsJulia, dogsKate) {
+	let dogsJulia1 = dogsJulia.slice();
+	dogsJulia1.splice(0, 1);
+	dogsJulia1.splice(-2);
+	// dogsJulia.slice(1, 3);
+	const allDogs = dogsJulia1.concat(dogsKate);
+	console.log(allDogs);
+	allDogs.forEach(function(dog, index) {
+		const str = dog >= 3 ? `an adult and is ${dog} years old` : `still a puppy 🐶`;
+		console.log(`Dog number ${index + 1} is ${str}`);
+	})
+}
+
+checkDogs([3, 5, 2, 12, 7], [4, 1, 15, 8, 3]);
+checkDogs([9, 16, 6, 8, 3], [10, 5, 6, 1, 4]);
+
+// Data 1: Julia's data [3, 5, 2, 12, 7], Kate's data [4, 1, 15, 8, 3]
+// Data 2: Julia's data [9, 16, 6, 8, 3], Kate's data [10, 5, 6, 1, 4]
