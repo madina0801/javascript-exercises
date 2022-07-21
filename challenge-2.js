@@ -600,33 +600,43 @@ document.querySelector('button').addEventListener('click', () => {
 
 // CHALLENGE 1
 
-const checkDogs = function(dogsJulia, dogsKate) {
-	let dogsJulia1 = dogsJulia.slice();
-	dogsJulia1.splice(0, 1);
-	dogsJulia1.splice(-2);
-	// dogsJulia.slice(1, 3);
-	const allDogs = dogsJulia1.concat(dogsKate);
-	console.log(allDogs);
-	allDogs.forEach(function(dog, index) {
-		const str = dog >= 3 ? `an adult and is ${dog} years old` : `still a puppy 🐶`;
-		console.log(`Dog number ${index + 1} is ${str}`);
-	})
-}
+const checkDogs = function (dogsJulia, dogsKate) {
+  let dogsJulia1 = dogsJulia.slice();
+  dogsJulia1.splice(0, 1);
+  dogsJulia1.splice(-2);
+  // dogsJulia.slice(1, 3);
+  const allDogs = dogsJulia1.concat(dogsKate);
+  console.log(allDogs);
+  allDogs.forEach(function (dog, index) {
+    const str =
+      dog >= 3 ? `an adult and is ${dog} years old` : `still a puppy 🐶`;
+    console.log(`Dog number ${index + 1} is ${str}`);
+  });
+};
 
 checkDogs([3, 5, 2, 12, 7], [4, 1, 15, 8, 3]);
 checkDogs([9, 16, 6, 8, 3], [10, 5, 6, 1, 4]);
 
-const calcAverageHumanAge = function(ages) {
-	const humanAges = ages.map(age => age <= 2 ? 2 * age : 16 + age * 4);
-	// console.log(humanAges);
-	const adultDogs = humanAges.filter(age => age >= 18);
-	// console.log(adultDogs);
-	const avgAge = adultDogs.reduce((acc, age) => acc + age, 0) / adultDogs.length;
+// const calcAverageHumanAge = function(ages) {
+// 	const humanAges = ages.map(age => age <= 2 ? 2 * age : 16 + age * 4);
+// 	// console.log(humanAges);
+// 	const adultDogs = humanAges.filter(age => age >= 18);
+// 	// console.log(adultDogs);
+// 	const avgAge = adultDogs.reduce((acc, age) => acc + age, 0) / adultDogs.length;
 
-	const avgAge1 = adultDogs.reduce((acc, age, i, arr) => acc + age / arr.length, 0);
-	console.log(avgAge1);
-	return avgAge;
-}
+// 	const avgAge1 = adultDogs.reduce((acc, age, i, arr) => acc + age / arr.length, 0);
+// 	console.log(avgAge1);
+// 	return avgAge;
+// }
+
+const calcAverageHumanAge = (ages) => {
+  const average =
+    ages
+      .map((age) => (age <= 2 ? 2 * age : 16 + age * 4))
+      .filter((age) => age >= 18)
+      .reduce((acc, age, i, arr) => acc + age / arr.length, 0);
+  return average;
+};
 
 const avg1 = calcAverageHumanAge([5, 2, 4, 1, 15, 8, 3]);
 const avg2 = calcAverageHumanAge([16, 6, 10, 5, 6, 1, 4]);
