@@ -599,7 +599,7 @@ document.querySelector('button').addEventListener('click', () => {
 // ARRAY CODING CHALLENGES
 
 // CHALLENGE 1
-
+/*
 const checkDogs = function (dogsJulia, dogsKate) {
   let dogsJulia1 = dogsJulia.slice();
   dogsJulia1.splice(0, 1);
@@ -649,3 +649,61 @@ console.log(avg2);
 
 // Data 1: Julia's data [3, 5, 2, 12, 7], Kate's data [4, 1, 15, 8, 3]
 // Data 2: Julia's data [9, 16, 6, 8, 3], Kate's data [10, 5, 6, 1, 4]
+*/
+
+// CHALLENGE 4
+const dogs = [
+  { weight: 22, curFood: 250, owners: ["Alice", "Bob"] },
+  { weight: 8, curFood: 200, owners: ["Matilda"] },
+  { weight: 13, curFood: 275, owners: ["Sarah", "John"] },
+  { weight: 32, curFood: 340, owners: ["Michael"] },
+];
+
+// 1. Add "recommended food" property for each dog to "dogs" object
+dogs.forEach((dog) => (dog.recFood = Math.trunc(dog.weight ** 0.75 * 25)));
+
+// 2. Find Sarah's dog
+const owners = dogs.forEach((dog) => console.log(dog.owners));
+
+const dogSarah = dogs.find((dog) => dog.owners.includes("Sarah"));
+
+console.log(
+  `Sarah's dog eats too ${
+    dogSarah.curFood > dogSarah.recFood ? "much" : "little"
+  }`
+);
+
+// 3. Create an array of all owners of dogs who eat too much and too little
+const ownersEatTooMuch = dogs
+  .filter((dog) => dog.curFood > dog.recFood)
+  .flatMap((dog) => dog.owners);
+
+console.log(ownersEatTooMuch);
+
+const ownersEatTooLittle = dogs
+  .filter((dog) => dog.curFood < dog.recFood)
+  .flatMap((dog) => dog.owners);
+
+console.log(ownersEatTooLittle);
+
+// 4. Log a string whose dogs eat too much or little based on arrays created in 3
+console.log(`${ownersEatTooMuch.join(" and ")}'s dogs eat too much!`);
+console.log(`${ownersEatTooLittle.join(" and ")}'s dogs eat too little!`);
+
+// 5. Log whether any dog eats exactly the amount of food recommended
+console.log(dogs.some((dog) => dog.recFood === dog.curFood));
+
+// 6. Log whether any dog eats okay amount of food recommended
+// current > (recommended * 0.90) && current < (recommended * 1.10)
+const checkEatOkay = (dog) =>
+  dog.curFood > dog.recFood * 0.9 && dog.curFood < dog.recFood * 1.1;
+console.log(dogs.some(checkEatOkay));
+
+// 7. Create an array containing the dogs that eat okay amount of food
+const dogsEatOkay = dogs.filter(checkEatOkay);
+console.log(dogsEatOkay);
+
+// 8. Create a shallow copy of the 'dogs' and sort it by recommended food portion in an ascending order
+const dogsSorted = dogs.slice().sort((a, b) => a.recFood - b.recFood);
+
+console.log(dogsSorted);
